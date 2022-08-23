@@ -50,11 +50,11 @@ export default {
 <style lang="less" scoped>
 .user-container {
   .user-card {
-    background-color: #82c3ff;
+    background-color: #4a92f7;
     color: white;
     padding-top: 20px;
     .van-cell {
-      background: #82c3ff;
+      background: #4a92f7;
       color: white;
       &::after {
         display: none;
