@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 // 导入需要的组件
 import Home from '@/views/Home/Home.vue'
 import User from '@/views/User/User.vue'
-
+import UserInfo from '@/views/UserInfo/UserInfo.vue'
 // 把 VueRouter 安装为 Vue 的插件
 Vue.use(VueRouter)
 
@@ -21,6 +21,11 @@ const routes = [
   {
     path: '/user',
     component: User
+  },
+  // 定义我的资料的路由规则
+  {
+    path: '/userInfo',
+    component: UserInfo
   }
 ]
 

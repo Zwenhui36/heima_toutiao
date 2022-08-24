@@ -10,6 +10,23 @@
         <img v-lazy="image" />
       </van-swipe-item>
     </van-swipe>
+    <!-- 公告栏 -->
+    <van-notice-bar
+      color="#1989fa"
+      background="#ecf9ff"
+      left-icon="info-o"
+      text="在代码阅读过程中人们说脏话的频率是衡量代码质量的唯一标准。"
+    />
+    <!-- 搜索栏 -->
+    <form action="/">
+      <van-search
+        v-model="value"
+        show-action
+        placeholder="请输入搜索关键词"
+        @search="onSearch"
+        @cancel="onCancel"
+      />
+    </form>
     <!-- 上拉刷新 -->
     <van-pull-refresh
       v-model="isLoading"
@@ -65,7 +82,9 @@ export default {
       // 所有数据加载完毕之后，如果没有更多的数据了，一定要把finished改为true
       finished: false,
       // 上拉刷新
-      isLoading: false
+      isLoading: false,
+      // 搜索框
+      value: ''
     }
   },
   created() {
@@ -130,6 +149,7 @@ export default {
         this.isLoading = false
       }, 1000)
     },
+    // 缓存
     recordTopHandler() {
       return _.debounce(
         () => {
@@ -138,6 +158,13 @@ export default {
         50,
         { trailling: true }
       )
+    },
+    // 搜索框
+    onSearch(val) {
+      console.log(val)
+    },
+    onCancel() {
+      console.log('触发了取消点击')
     }
   },
   components: {
