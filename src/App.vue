@@ -1,7 +1,10 @@
 <template>
   <div>
-    <!-- 路由占位符 -->
-    <router-view></router-view>
+    <!-- 首页缓存 页面离开不会销毁 -->
+    <keep-alive include="Home">
+      <!-- 路由占位符 -->
+      <router-view></router-view>
+    </keep-alive>
 
     <!-- Tabbar区域 -->
     <van-tabbar active-color="#4A92F7" inactive-color="#000" route>

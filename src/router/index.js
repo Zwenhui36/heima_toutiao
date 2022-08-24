@@ -14,7 +14,8 @@ const routes = [
   // 定义首页的路由规则
   {
     path: '/home',
-    component: Home
+    component: Home,
+    meta: { isRecord: true, top: 0 }
   },
   // 定义我的的路由规则
   {
@@ -25,7 +26,15 @@ const routes = [
 
 // 创建路由实例对象
 const router = new VueRouter({
-  routes: routes // 也可以简写为routes
+  routes: routes, // 也可以简写为routes
+  scrollBehavior(to, from, savedPosition) {
+    // return 期望滚动到哪个位置
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: to.meta.top || 0 }
+    }
+  }
 })
 
 export default router
